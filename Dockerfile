@@ -6,7 +6,7 @@ USER root
 RUN yum install -y unzip \
     && curl -fsSL https://github.com/inventage/nexus-apt-plugin/releases/download/nexus-apt-plugin-$NEXUS_APT_PLUGIN_VERSION/nexus-apt-plugin-$NEXUS_APT_PLUGIN_VERSION-bundle.zip -o /tmp/nexus-apt-plugin-$NEXUS_APT_PLUGIN_VERSION-bundle.zip \
     && echo "$NEXUS_APT_PLUGIN_SHA /tmp/nexus-apt-plugin-$NEXUS_APT_PLUGIN_VERSION-bundle.zip" | sha1sum -c \
-    && unzip -d /opt/sonatype/nexus/nexus/WEB-INF/plugin-repository /tmp/nexus-apt-plugin-${NEXUS_APT_PLUGIN_VERSION}-bundle.zip
+    && unzip -d /opt/sonatype/nexus/nexus/WEB-INF/plugin-repository /tmp/nexus-apt-plugin-${NEXUS_APT_PLUGIN_VERSION}-bundle.zip \
     && find /opt/sonatype/nexus/nexus/WEB-INF/plugin-repository/nexus-apt-plugin-${NEXUS_APT_PLUGIN_VERSION} \
     -type d -exec chmod 755 {} \; \
     && find /opt/sonatype/nexus/nexus/WEB-INF/plugin-repository/nexus-apt-plugin-${NEXUS_APT_PLUGIN_VERSION} \
